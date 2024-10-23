@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "589cc0f65c3aaa7d4e9024d545bc1974",
+    "content-hash": "19b8516fa9f4a227632de1114643ed3f",
     "packages": [
         {
             "name": "brick/math",
@@ -2179,6 +2179,76 @@
                 "source": "https://github.com/nette/utils/tree/v4.0.5"
             },
             "time": "2024-08-07T15:39:19+00:00"
+        },
+        {
+            "name": "nextapps/laravel-swagger-ui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wotzebra/laravel-swagger-ui.git",
+                "reference": "bd5e4eaadb0d2dac17becf56c0b7f88cd5982f57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wotzebra/laravel-swagger-ui/zipball/bd5e4eaadb0d2dac17becf56c0b7f88cd5982f57",
+                "reference": "bd5e4eaadb0d2dac17becf56c0b7f88cd5982f57",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "^9.0|^10.0|^11.0",
+                "php": "^8.1|^8.2|^8.3"
+            },
+            "require-dev": {
+                "adamwojs/php-cs-fixer-phpdoc-force-fqcn": "^2.0",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "guzzlehttp/guzzle": "^7.5",
+                "jasonmccreary/laravel-test-assertions": "^2.3",
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^9.5|^10.0",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "suggest": {
+                "ext-yaml": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Wotz\\SwaggerUi\\SwaggerUiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wotz\\SwaggerUi\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Günther Debrauwer",
+                    "email": "gunther.debrauwer@whoownsthezebra.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add Swagger UI to a Laravel application.",
+            "homepage": "https://github.com/wotzebra/laravel-swagger-ui",
+            "keywords": [
+                "laravel",
+                "openapi",
+                "swagger",
+                "swagger-ui"
+            ],
+            "support": {
+                "issues": "https://github.com/wotzebra/laravel-swagger-ui/issues",
+                "source": "https://github.com/wotzebra/laravel-swagger-ui/tree/1.0.0"
+            },
+            "abandoned": "wotz/laravel-swagger-ui",
+            "time": "2024-09-26T11:40:39+00:00"
         },
         {
             "name": "nikic/php-parser",

@@ -1,3 +1,4 @@
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -8,12 +9,12 @@
 </p>
 
 ## About current project on Laravel v 11
-
+# Laravel-api-gateway app
 1 Swagger description<br>
-2 Слоистая архитектура  использование коллекции из компонентнов<br>
-3 Unit test<br>
-3 Тонкий PROXY client<br>
-5 Sol(i)d -  interface agregation<br>
+2 Architecture style - Layered Architecture (collection of components) <br>
+3 Unit test of several endpoints<br>
+3 Thin PROXY client<br>
+5 Sol(i)d - interface aggregation, independent APP not depends on API gateway<br>
 
 ## Contributing
 
