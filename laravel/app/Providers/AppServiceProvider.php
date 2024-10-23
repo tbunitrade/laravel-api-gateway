@@ -18,7 +18,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(ShowInterface::class, Show::class);
+        //$this->app->bind(ShowInterface::class, Show::class);
+        $this->app->bind(ShowInterface::class, fn () => new Show($url,$authToken));
         $this->app->bind(ShowEventInterface::class, ShowEvent ::class);
     }
 
