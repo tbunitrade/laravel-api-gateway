@@ -14,6 +14,9 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request): JsonResponse
     {
+        // Business logic
+        // add Service + Interface for logic with external API
+        // add API resources
         return response()->json(['test'=> 'ok']);
     }
 }
