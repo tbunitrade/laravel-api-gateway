@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\TicketsGate;
 
 use App\Services\TicketsGate\Dto\ShowDto;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
@@ -20,9 +21,19 @@ class Show implements ShowInterface
     }
 
     ///public function shows(): ShowDto
+
+    /**
+     * @throws ConnectionException
+     */
     public function shows(): Collection
     {
-        $response = Http::withToken($this->authToken)->get($this->url);
-        // TODO: Implement shows() method.
+        $response = Http::retry(3,100)
+            ->withToken($this->authToken)
+            ->dd()
+            ->get($this->url.'/shows');
+
+
+        //decode json array from endpoint
+        return collect(json_decode($response->body(), true));
     }
 }
