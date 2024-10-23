@@ -9,9 +9,6 @@ final readonly class ShowEventDto
     public function __construct(
         private int $id,
         private string $showId,
-        private CarbonInterface $date
-    )
-    {
-
-    }
+        private CarbonInterface $date,
+    ){}
 }
