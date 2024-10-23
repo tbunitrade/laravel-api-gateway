@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class ShowController extends Controller
+final class ShowController extends Controller
 {
     /**
      * Handle the incoming request.
