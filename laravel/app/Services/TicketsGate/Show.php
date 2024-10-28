@@ -27,28 +27,32 @@ class Show implements ShowInterface
      */
     public function shows(): Collection
     {
-
-//        $response = Http::withOptions([
-//            'debug' => true, // Включаем детальные логи Guzzle
-//        ])
-//            ->retry(3, 100)
-//            ->timeout(60)
-//            ->withToken($this->authToken)
-//            ->get($this->url.'/shows');
+        $body =[];
         $response = Http::retry(3,100)
             ->withToken($this->authToken)
             ->get($this->url.'/shows');
 
-        $showsArray = json_decode($response->body(), true);
+        if ($response->ok()) {
+            $decodeBody = json_decode($response->body(), true);
+            $body = $decodeBody['response'] ?? $decodeBody;
+        }
 
+        $collection = collect($body);
+        //$collection = $collection->map(fn ($item) => new ShowDto((int) $item['id'], $item['name']));
+        return $collection->map(fn ($item) => new ShowDto((int) $item['id'], $item['name']));
+
+        //dd($collection);
+
+       // return $collection;
 
         // Преобразуем массив в коллекцию объектов ShowDto
-        return collect($showsArray['response'])->map(function ($show) {
-            return new ShowDto(
-                $show['id'],
-                $show['name']
-            );
-        });
+//        return collect($body['response'])->map(function ($show) {
+//            return new ShowDto(
+//                $show['id'],
+//                $show['name']
+//            );
+//        });
+//        return collect($body);
 
 
         //decode json array from endpoint
