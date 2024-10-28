@@ -8,7 +8,7 @@ final readonly class ShowEventDto
 {
     public function __construct(
         public int $id,
-        public string $showId,
+        public int $showId,
         public CarbonInterface $date,
     ){}
 }

@@ -6,7 +6,7 @@ namespace App\Services\TicketsGate;
 
 use App\Services\TicketsGate\Dto\ShowEventDto;
 use Carbon\CarbonImmutable;
-use Ramsey\Collection\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
 class ShowEvent extends Client implements ShowEventInterface

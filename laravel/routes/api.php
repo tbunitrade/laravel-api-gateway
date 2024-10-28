@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
    Route::get('/shows', ShowController::class);
-   Route::get('/shows/{id}/event', ShowItemController::class)
+   Route::get('/shows/{id}/events', ShowItemController::class)
        ->where('id','\d+');
    Route::get('events/{id/places}', EventItemController::class)
        ->where('id','\d+');

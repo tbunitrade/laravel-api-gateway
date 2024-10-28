@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\TicketsGate;
 
-use Ramsey\Collection\Collection;
+use Illuminate\Support\Collection;
 
 interface ShowEventInterface
 {
