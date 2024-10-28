@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use app\Http\Controllers\V1\EventItemController;
+use App\Services\TicketsGate\BookEvent;
+use App\Services\TicketsGate\BookEventInterface;
 use App\Services\TicketsGate\Dto\ShowDto;
+use App\Services\TicketsGate\EventItem;
+use App\Services\TicketsGate\EventItemInterface;
 use App\Services\TicketsGate\Show;
 use App\Services\TicketsGate\ShowEvent;
 use App\Services\TicketsGate\ShowEventInterface;
@@ -23,7 +28,22 @@ class AppServiceProvider extends ServiceProvider
             config('leadbook.url'),
             config('leadbook.api_key'),
         ));
-        $this->app->bind(ShowEventInterface::class, ShowEvent ::class);
+
+        $this->app->bind(ShowEventInterface::class, fn () => new ShowEvent(
+            config('leadbook.url'),
+            config('leadbook.api_key'),
+        ));
+
+        $this->app->bind(EventItemInterface::class, fn () => new EventItem(
+            config('leadbook.url'),
+            config('leadbook.api_key'),
+        ));
+
+        $this->app->bind(BookEventInterface::class, fn () => new BookEvent(
+            config('leadbook.url'),
+            config('leadbook.api_key'),
+        ));
+
     }
 
     /**
