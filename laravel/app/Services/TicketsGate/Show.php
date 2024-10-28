@@ -9,19 +9,8 @@ use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
-class Show implements ShowInterface
+class Show extends Client implements ShowInterface
 {
-    public function __construct(
-        public readonly string $url,
-        public readonly string $authToken
-
-    )
-    {
-
-    }
-
-    ///public function shows(): ShowDto
-
     /**
      * @throws ConnectionException
      */
@@ -39,6 +28,8 @@ class Show implements ShowInterface
 
         $collection = collect($body);
         //$collection = $collection->map(fn ($item) => new ShowDto((int) $item['id'], $item['name']));
+
+        // todo: add validation in the future in sace if ID or Name is missed or collection is empty
         return $collection->map(fn ($item) => new ShowDto((int) $item['id'], $item['name']));
 
         //dd($collection);
