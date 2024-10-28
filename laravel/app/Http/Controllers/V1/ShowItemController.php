@@ -7,15 +7,16 @@ use App\Http\Controllers\Controller;
 use App\Services\TicketsGate\Dto\ShowDto;
 use App\Services\TicketsGate\Dto\ShowEventDto;
 use App\Services\TicketsGate\ShowEventInterface;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-class ShowItemController extends Controller
+final class ShowItemController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request, int $id, ShowEventInterface $showEvent)
+    public function __invoke(Request $request, int $id, ShowEventInterface $showEvent): JsonResponse
     {
         //
         try {

@@ -18,6 +18,10 @@ final class ShowController extends Controller
      */
     public function __invoke(Request $request, ShowInterface $show ): JsonResponse
     {
+        // Business logic
+        // add Service + Interface for logic with external API
+        // add API resources
+
         try {
             $collection = $show->shows();
 
@@ -33,9 +37,7 @@ final class ShowController extends Controller
 
             return response()->json(['message'=> $exception->getMessage()], 500);
         }
-        // Business logic
-        // add Service + Interface for logic with external API
-        // add API resources
+
 
         //return response()->json(['test'=> 'ok']);
     }
