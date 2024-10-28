@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -23,6 +25,14 @@ class BookEventRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required|string|max:100',
+            'place' => 'required|array',
+            'places' => 'required|array|min:1',
         ];
+    }
+
+    public function getPlaces(): array
+    {
+        return $this->validated('places');
     }
 }
