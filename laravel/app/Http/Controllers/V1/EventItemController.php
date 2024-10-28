@@ -14,11 +14,11 @@ final class EventItemController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request,int $eventId, EventItemInterface $eventItem): JsonResponse
+    public function __invoke(Request $request,int $id, EventItemInterface $eventItem): JsonResponse
     {
         //
         try {
-            $collection = $eventItem->getPlaces($eventId);
+            $collection = $eventItem->getPlaces($id);
 
             return response()->json($collection->map(
                 fn (EventItemDto $eventItemDto) => [

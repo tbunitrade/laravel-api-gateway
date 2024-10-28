@@ -18,10 +18,10 @@ final class BookEventController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(BookEventRequest $request, int $eventId, BookEventInterface $bookEvent): JsonResponse
+    public function __invoke(BookEventRequest $request, int $id, BookEventInterface $bookEvent): JsonResponse
     {
         try {
-            $bookEventDto =  $bookEvent->eventReserve($eventId, $request->validated('name'), $request->getPlaces());
+            $bookEventDto =  $bookEvent->eventReserve($id, $request->validated('name'), $request->getPlaces());
 
             return response()->json($bookEventDto);
         } catch ( \Throwable $exception ) {
