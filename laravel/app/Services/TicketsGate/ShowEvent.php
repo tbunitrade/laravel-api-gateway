@@ -6,17 +6,19 @@ namespace App\Services\TicketsGate;
 
 use App\Services\TicketsGate\Dto\ShowEventDto;
 use Carbon\CarbonImmutable;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
 class ShowEvent extends Client implements ShowEventInterface
 {
-
+    /**
+     * @throws ConnectionException
+     */
     public function getEvents(int $showId): Collection
     {
         // TODO: Implement getEvents() method.
         // shows/{showId:\d+}/events
-
 
         $body =[];
         $response = Http::retry(3,100)
@@ -35,6 +37,5 @@ class ShowEvent extends Client implements ShowEventInterface
             $item['showId'],
             CarbonImmutable::createFromTimestamp( strtotime( $item['date']))
         ));
-
     }
 }

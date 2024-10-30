@@ -1,6 +1,8 @@
 <?php
 
-namespace app\Http\Controllers\V1;
+declare(strict_types=1);
+
+namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
 use App\Services\TicketsGate\Dto\EventItemDto;
@@ -14,11 +16,10 @@ final class EventItemController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request,int $id, EventItemInterface $eventItem): JsonResponse
+    public function __invoke(Request $request,int $eventId, EventItemInterface $eventItem): JsonResponse
     {
-        //
         try {
-            $collection = $eventItem->getPlaces($id);
+            $collection = $eventItem->getPlaces($eventId);
 
             return response()->json($collection->map(
                 fn (EventItemDto $eventItemDto) => [

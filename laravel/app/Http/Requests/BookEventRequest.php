@@ -25,9 +25,9 @@ class BookEventRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required|string|max:100',
-            'place' => 'required|array',
-            'places' => 'required|array|min:1',
+            'name' => ['required|string|max:100'],
+            'place' => ['required|array'],
+            'places' => ['required|array|min:1'],
         ];
     }
 

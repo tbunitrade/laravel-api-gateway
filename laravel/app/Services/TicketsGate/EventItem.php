@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace App\Services\TicketsGate;
 
 use App\Services\TicketsGate\Dto\EventItemDto;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
 class EventItem extends Client implements EventItemInterface
 {
-
+    /**
+     * @throws ConnectionException
+     */
     public function getPlaces(int $eventId): Collection
     {
         $body =[];
@@ -23,9 +26,12 @@ class EventItem extends Client implements EventItemInterface
             $body = $decodeBody['response'] ?? $decodeBody;
         }
 
+        //dd($response);
+
         $collection = collect($body);
 
-        return $collection->map(fn (array $item) => new EventItemDto(
+        return $collection->where('is_available', '=', true)
+            ->map(fn (array $item) => new EventItemDto(
             (int) $item['id'],
             $item['x'],
             $item['y'],

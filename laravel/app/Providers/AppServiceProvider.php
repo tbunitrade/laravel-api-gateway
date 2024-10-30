@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use app\Http\Controllers\V1\EventItemController;
+use App\Http\Controllers\V1\EventItemController;
 use App\Services\TicketsGate\BookEvent;
 use App\Services\TicketsGate\BookEventInterface;
 use App\Services\TicketsGate\Dto\ShowDto;

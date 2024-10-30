@@ -31,6 +31,8 @@ class Show extends Client implements ShowInterface
 
         // todo: add validation in the future in sace if ID or Name is missed or collection is empty
         return $collection->map(fn ($item) => new ShowDto((int) $item['id'], $item['name']));
+    }
+}
 
         //dd($collection);
 
@@ -48,5 +50,4 @@ class Show extends Client implements ShowInterface
 
         //decode json array from endpoint
         //return collect(json_decode($response->body(), true));
-    }
-}
+

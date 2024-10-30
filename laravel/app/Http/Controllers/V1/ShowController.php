@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace app\Http\Controllers\V1;
+namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
 use App\Services\TicketsGate\Dto\ShowDto;
@@ -9,7 +9,6 @@ use App\Services\TicketsGate\ShowInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use mysql_xdevapi\Exception;
 
 final class ShowController extends Controller
 {

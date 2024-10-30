@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\Http\Controllers\V1;
+namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BookEventRequest;
