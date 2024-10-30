@@ -8,12 +8,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About current project on Laravel v 11
-# Laravel-api-gateway app
+## About the current project on Laravel v 11
+# Laravel-API-tickets-gateway app
 1 Swagger description<br>
 2 Architecture style - Layered Architecture (collection of components) <br>
 3 Unit test of several endpoints<br>
-3 Thin PROXY client<br>
+4 Thin PROXY client<br>
 5 Sol(i)d - interface aggregation, independent APP not depends on API gateway<br>
 
 ## Contributing
