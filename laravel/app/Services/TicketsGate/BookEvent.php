@@ -16,12 +16,16 @@ class BookEvent extends Client implements BookEventInterface
      */
     public function eventReserve(int $eventId, string $name, array $places): BookEventDto
     {
+        //dd(array_values($places));
+
         $response = Http::retry(3,100)
             ->withToken($this->authToken)
             ->post($this->url.'/events/'. $eventId. '/reserve', [
                 'name' => $name,
-                'places' => $places
+                'places' => array_values($places)
             ]);
+
+        dd($response->body());
 
         if ($response->ok()) {
             $decodeBody = json_decode($response->body(), true);
@@ -29,6 +33,6 @@ class BookEvent extends Client implements BookEventInterface
         }
 
         return new BookEventDto(
-            boolval($body['success'] ?? false), $body['reservation_id'] ?? '');
+            boolval($body['success'] ?? false), $body['reservation_id'] ?? $body['error']);
     }
 }

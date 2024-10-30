@@ -27,6 +27,7 @@ class EventItem extends Client implements EventItemInterface
         }
 
         //dd($response);
+        dd($response->body());
 
         $collection = collect($body);
 
