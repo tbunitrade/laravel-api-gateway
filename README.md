@@ -1,6 +1,6 @@
 #laravel 
-api to test architecture on interface 
-work with DTO , no db need for this.
+API to test architecture on the interface<be> 
+work on API routes based on DTO, we do not need models and migrations so no DB is needed for these tools.
 
 #3 endpoint with get
 #1 endpoint for post
